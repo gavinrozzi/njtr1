@@ -2,6 +2,6 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
-  intro_to_njtr1: intro_to_njtr1.html
-last_built: 2021-01-17T05:10Z
+  njtr1: njtr1.html
+last_built: 2021-01-17T16:35Z
 

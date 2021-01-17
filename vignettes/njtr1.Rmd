@@ -20,7 +20,9 @@ set.seed(1000)
 
 ## Usage
 
-The main function of this package is `get_njtr1()`. This function allows you to specify the specific table of NJTR-1 data that you'd like to query for a given year. To build a query, it's as simple as this example:
+The main function of this package is `get_njtr1()`. This function allows you to specify the specific table of NJTR-1 data that you'd like to query for a given year.
+
+There are 5 different tables available with NJTR-1 data and published by the NJDOT. We will take a look at each of them in the following examples.
 
 ### Accidents
 
@@ -38,4 +40,16 @@ get_njtr1(year = 2019, type = "Drivers")
 
 ```{r}
 get_njtr1(year = 2019, type = "Vehicles")
+```
+
+### Pedestrians
+
+```{r}
+get_njtr1(year = 2019, type = "Pedestrians")
+```
+
+### Occupants
+
+```{r}
+get_njtr1(year = 2019, type = "Occupants")
 ```

@@ -1,5 +1,5 @@
 Package: njtr1
-Title: "njtr1: Download and Analyze New Jersey Car Crash Data"
+Title: Download and Analyze New Jersey Car Crash Data
 Version: 0.1.0.9000
 Authors@R: 
     person(given = "Gavin",
@@ -11,8 +11,10 @@ Description: This package makes it easy to download the crash data published by 
 License: GPL-3
 Encoding: UTF-8
 URL: https://github.com/gavinrozzi/njtr1/, https://www.gavinrozzi.com/project/njtr1/
+BugReports: https://github.com/gavinrozzi/njtr1/issues/
 LazyData: true
 Depends:
+  R (>= 3.5.0),
   stringr,
   lubridate,
   readr
