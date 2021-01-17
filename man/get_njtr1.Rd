@@ -17,6 +17,3 @@ tibble of all reported accidents for the year
 \description{
 Download NJ car accident records for a given year
 }
-\examples{
-get_njtr1(year = 2019, type = 'Accidents')
-}

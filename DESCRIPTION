@@ -1,19 +1,25 @@
 Package: njtr1
-Title: The New Jersey Department of Transportation collects data collected from police reports of car crashes within the state.
-Version: 0.0.0.9000
+Title: "njtr1: Download and Analyze New Jersey Car Crash Data"
+Version: 0.1.0.9000
 Authors@R: 
     person(given = "Gavin",
            family = "Rozzi",
            role = c("aut", "cre"),
            email = "gr@gavinrozzi.com",
            comment = c(ORCID = "0000-0002-9969-8175"))
-Description: What the package does (one paragraph).
-License: GPL (>= 3)
+Description: This package makes it easy to download the crash data published by the the New Jersey Department of Transportation. The data in this package is collected through the filing of NJTR-1 forms by police documenting a crash occuring within New Jersey.
+License: GPL-3
 Encoding: UTF-8
+URL: https://github.com/gavinrozzi/njtr1/, https://www.gavinrozzi.com/project/njtr1/
 LazyData: true
 Depends:
   stringr,
   lubridate,
   readr
+Suggests:
+    knitr,
+    rmarkdown,
+    markdown
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+VignetteBuilder: knitr, rmarkdown

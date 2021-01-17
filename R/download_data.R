@@ -4,12 +4,11 @@
 #' @param year Year to download crash data
 #' @param type The type of NJDOT crash data to download.
 #' @return tibble of all reported accidents for the year
-#' @examples
-#' get_njtr1(year = 2019, type = 'Accidents')
 #' @importFrom readr read_csv
 #' @importFrom readr cols
 #' @importFrom stringr str_to_lower
 #' @importFrom lubridate mdy
+#' @example  get_njtr1(year = 2019, type = "Accidents")
 #' @export
 get_njtr1 <- function(year, type) {
   
@@ -21,11 +20,9 @@ get_njtr1 <- function(year, type) {
   
   
   if ( year >= 2017 ) {
-  # Set parameters using input
-  fields <- utils::read.csv(paste0("inst/extdata/fields/2017/",type,".csv"),header = FALSE)
+  # Set parameters for download using input to function
+  fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"),"/fields/2017/",type,".csv"),header = FALSE)
   file_name <- paste0(base_url,as.character(year),'/NewJersey',year,type,'.zip')
-  cat(file_name)
-  
   } else if ( year <= 2016 ) {
     
     stop("Years prior to 2017 are not yet supported")
@@ -56,7 +53,13 @@ get_njtr1 <- function(year, type) {
   # Add field names
   names(data) <- fields$V1
   
-  #data$crash_date <- lubridate::mdy(data$crash_date)
+  if ( type == "Accidents") {
+    data$crash_date <- lubridate::mdy(data$crash_date)
+  } 
+  
+  if ( type == "Drivers") {
+    data$driver_dob <- suppressWarnings(lubridate::mdy(data$driver_dob))
+  }
   return(data)
 }
 

@@ -1,0 +1,41 @@
+---
+title: "Introduction to njtr1"
+author: "Gavin Rozzi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+description: >
+  This is a short intro to getting started with the njtr1 package
+vignette: >
+  %\VignetteIndexEntry{Introduction to njtr1}
+  %\VignetteEngine{knitr::knitr}
+  \usepackage[utf8]{inputenc}
+---
+
+```{r setup, include=FALSE}
+library(njtr1)
+set.seed(1000)
+```
+
+`njtr1` is a package that makes it easy to download New Jersey car crash data that is released by the New Jersey Department of Transportation. This package makes it easy to access detailed information on a statewide or county-by-county process that can assist those interested in studying trends in vehicle crashes in New Jersey.
+
+## Usage
+
+The main function of this package is `get_njtr1()`. This function allows you to specify the specific table of NJTR-1 data that you'd like to query for a given year. To build a query, it's as simple as this example:
+
+### Accidents
+
+```{r}
+get_njtr1(year = 2019, type = "Accidents")
+```
+
+### Drivers
+
+```{r}
+get_njtr1(year = 2019, type = "Drivers")
+```
+
+### Vehicles
+
+```{r}
+get_njtr1(year = 2019, type = "Vehicles")
+```
