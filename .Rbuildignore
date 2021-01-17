@@ -6,3 +6,5 @@
 ^inst\fields$
 ^pkgdown$
 ^.*\.Rproj$
+^revdep$
+^cran-comments.md$

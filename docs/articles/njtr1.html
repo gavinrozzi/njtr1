@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">njtr1</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -56,6 +56,9 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -192,11 +195,31 @@
 ## #   hazmat_status &lt;lgl&gt;, hazmat_class &lt;lgl&gt;, hazmat_placard &lt;lgl&gt;,
 ## #   usdot_number &lt;chr&gt;, mcmx_number &lt;dbl&gt;, usdot__other_flag &lt;lgl&gt;,
 ## #   usdot__other_number &lt;lgl&gt;, carrier_name &lt;chr&gt;, hit__run_driver_flag &lt;chr&gt;</code></pre>
+<div id="insurance-company-data" class="section level4">
+<h4 class="hasAnchor">
+<a href="#insurance-company-data" class="anchor"></a>Insurance company data</h4>
+<p>Each of the vehicle records contain a field name <code>insurance_company_code</code> that identifies the name of the insurance company that covers the vehicle involved in an accident.</p>
+<p>This code can be used to join the vehicle data with a dataset containing details for every insurance company that does business in New Jersey.</p>
+<p>Access the insurance from the package like so:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"insurance"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">insurance</span><span class="op">)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 9
+##   ID_NO NAME         ADDRESS_1    ADDRESS_2 ADDRESS_3 CITY   STATE ZIP   NOTES  
+##   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
+## 1 001   SAMSUNG FIR~ 25 CHALLENG~ &lt;NA&gt;      &lt;NA&gt;      RIDGE~ NJ    07660 COMM O~
+## 2 002   BROTHERHOOD~ PO BOX 2227  &lt;NA&gt;      &lt;NA&gt;      FORT ~ IN    07661 COMM O~
+## 3 003   MID-CENTURY~ 4680 WILSHI~ &lt;NA&gt;      &lt;NA&gt;      LOS A~ CA    07662 PRIV P~
+## 4 004   ACE PROPERT~ 1601 CHESTN~ PO BOX 4~ &lt;NA&gt;      PHILA~ PA    07663 COMM O~
+## 5 005   FIRST NONPR~ 111 NORTH C~ SUITE 801 &lt;NA&gt;      CHICA~ IL    07664 COMM O~
+## 6 006   EVEREST PRE~ 477 MARTINS~ &lt;NA&gt;      &lt;NA&gt;      LIBER~ NJ    07665 COMM O~</code></pre>
+<p>The insurance dataset contains a field <code>ID_NO</code> which is the same as <code>insurance_company_code</code> in the Vehicles table. This common field can be used for performing join operations.</p>
+</div>
 </div>
 <div id="pedestrians" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pedestrians" class="anchor"></a>Pedestrians</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Pedestrians"</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 7,946 x 35
 ##    id    pedestrian_numb~ physical_condit~ address_city address_state
@@ -226,7 +249,7 @@
 <div id="occupants" class="section level3">
 <h3 class="hasAnchor">
 <a href="#occupants" class="anchor"></a>Occupants</h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Occupants"</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 651,507 x 15
 ##    id    vehicle_number occupant_number physical_condit~ position_in_on_~

@@ -9,7 +9,7 @@ get_njtr1(year, type)
 \arguments{
 \item{year}{Year to download crash data}
 
-\item{type}{The table of NJDOT crash data to download.}
+\item{type}{The table of NJDOT crash data to download}
 }
 \value{
 tibble of all reported accidents for the year
@@ -18,5 +18,5 @@ tibble of all reported accidents for the year
 Download NJ car accident records for a given year
 }
 \examples{
-get_njtr1(year = 2019, type = "Accidents")
+get_njtr1(year = 2019, type = "Pedestrians")
 }

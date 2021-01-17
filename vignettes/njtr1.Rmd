@@ -42,6 +42,20 @@ get_njtr1(year = 2019, type = "Drivers")
 get_njtr1(year = 2019, type = "Vehicles")
 ```
 
+#### Insurance company data
+
+Each of the vehicle records contain a field name `insurance_company_code` that identifies the name of the insurance company that covers the vehicle involved in an accident.
+
+This code can be used to join the vehicle data with a dataset containing details for every insurance company that does business in New Jersey.
+
+Access the insurance from the package like so:
+```{r}
+data("insurance")
+head(insurance)
+```
+
+The insurance dataset contains a field `ID_NO` which is the same as `insurance_company_code` in the Vehicles table. This common field can be used for performing join operations. 
+
 ### Pedestrians
 
 ```{r}

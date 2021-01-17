@@ -2,14 +2,14 @@
 #'
 #'
 #' @param year Year to download crash data
-#' @param type The table of NJDOT crash data to download.
+#' @param type The table of NJDOT crash data to download
 #' @return tibble of all reported accidents for the year
 #' @importFrom readr read_csv
 #' @importFrom readr cols
 #' @importFrom stringr str_to_lower
 #' @importFrom lubridate mdy
 #' @examples
-#' get_njtr1(year = 2019, type = "Accidents")
+#' get_njtr1(year = 2019, type = "Pedestrians")
 #' @export
 get_njtr1 <- function(year, type) {
 
@@ -58,12 +58,5 @@ get_njtr1 <- function(year, type) {
   # Add field names
   names(data) <- fields$V1
 
-  if (type == "Accidents") {
-    data$crash_date <- lubridate::mdy(data$crash_date)
-  }
-
-  if (type == "Drivers") {
-    data$driver_dob <- suppressWarnings(lubridate::mdy(data$driver_dob))
-  }
   return(data)
 }
