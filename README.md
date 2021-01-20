@@ -2,8 +2,8 @@
 
   <!-- badges: start -->
   [![R-CMD-check](https://github.com/gavinrozzi/njtr1/workflows/R-CMD-check/badge.svg)](https://github.com/gavinrozzi/njtr1/actions)
-  [![CRAN Status](https://www.r-pkg.org/badges/version-last-release/zipcodeR)](https://www.r-pkg.org/badges/version-last-release/zipcodeR)
-  [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR)](https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR)
+  [![CRAN Status](https://www.r-pkg.org/badges/version-last-release/njtr1)](https://www.r-pkg.org/badges/version-last-release/zipcodeR)
+  [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/njtr1)](https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR)
   <!-- badges: end -->
 
 `njtr1` is an R package that provides provides an interface to easily download car crash records maintained by the New Jersey Department of Transportation. These records are collected from police officers in New Jersey when they complete the form NJTR-1 following a motor vehicle crash that is reported to law enforcement.
