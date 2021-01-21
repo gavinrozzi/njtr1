@@ -15,6 +15,12 @@ More details about the NJTR-1 crash reporting process is available through the [
 This package currently provides data from 2017 - 2019. We are currently working on implementing the format of the older data from 2016 prior.
 
 ## Installation
+The latest version can be installed from CRAN by running:
+
+``` r
+install.packages("njtr1")
+```
+
 The latest development version can be installed like so using devtools:
 ``` r
 devtools::install_github("gavinrozzi/njtr1")
