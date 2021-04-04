@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">njtr1</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -78,13 +78,13 @@
 
       
 
-      </header><script src="njtr1_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="njtr1_files/header-attrs-2.7/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Introduction to njtr1</h1>
                         <h4 class="author">Gavin Rozzi</h4>
             
-            <h4 class="date">2021-01-20</h4>
+            <h4 class="date">2021-04-04</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/gavinrozzi/njtr1/blob/master/vignettes/njtr1.Rmd"><code>vignettes/njtr1.Rmd</code></a></small>
       <div class="hidden name"><code>njtr1.Rmd</code></div>
@@ -104,171 +104,50 @@
 <a href="#accidents" class="anchor"></a>Accidents</h3>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Accidents"</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 283,210 x 50
-##    id    county_name municipality_na~ crash_date crash_day_of_we~ crash_time
-##    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;      &lt;chr&gt;            &lt;chr&gt;     
-##  1 2019~ ATLANTIC    ABSECON CITY     02/14/2019 TH               1005      
-##  2 2019~ ATLANTIC    ABSECON CITY     01/28/2019 MO               0953      
-##  3 2019~ ATLANTIC    ABSECON CITY     01/01/2019 TU               0853      
-##  4 2019~ ATLANTIC    ABSECON CITY     01/02/2019 WE               2200      
-##  5 2019~ ATLANTIC    ABSECON CITY     01/09/2019 WE               1253      
-##  6 2019~ ATLANTIC    ABSECON CITY     01/11/2019 FR               0855      
-##  7 2019~ ATLANTIC    ABSECON CITY     01/11/2019 FR               1110      
-##  8 2019~ ATLANTIC    ABSECON CITY     01/13/2019 SU               1007      
-##  9 2019~ ATLANTIC    ABSECON CITY     01/16/2019 WE               2000      
-## 10 2019~ ATLANTIC    ABSECON CITY     01/18/2019 FR               1738      
-## # ... with 283,200 more rows, and 44 more variables: police_dept_code &lt;chr&gt;,
-## #   police_department &lt;chr&gt;, police_station &lt;chr&gt;, total_killed &lt;dbl&gt;,
-## #   total_injured &lt;dbl&gt;, pedestrians_killed &lt;dbl&gt;, pedestrians_injured &lt;dbl&gt;,
-## #   severity &lt;chr&gt;, intersection &lt;chr&gt;, alcohol_involved &lt;chr&gt;,
-## #   hazmat_involved &lt;chr&gt;, crash_type_code &lt;chr&gt;,
-## #   total_vehicles_involved &lt;dbl&gt;, crash_location &lt;chr&gt;,
-## #   location_direction &lt;chr&gt;, route &lt;dbl&gt;, route_suffix &lt;dbl&gt;,
-## #   sri_std_rte_identifier &lt;chr&gt;, milepost &lt;dbl&gt;, road_system &lt;chr&gt;,
-## #   road_character &lt;lgl&gt;, road_horizontal_alignment &lt;chr&gt;, road_grade &lt;chr&gt;,
-## #   road_surface_type &lt;chr&gt;, surface_condition &lt;chr&gt;, light_condition &lt;chr&gt;,
-## #   environmental_condition &lt;chr&gt;, road_divided_by &lt;chr&gt;,
-## #   temporary_traffic_control_zone &lt;chr&gt;, distance_to_cross_street &lt;dbl&gt;,
-## #   unit_of_measurement &lt;chr&gt;, directn_from_cross_street &lt;chr&gt;,
-## #   cross_street_name &lt;chr&gt;, is_ramp &lt;lgl&gt;, ramp_tofrom_route_name &lt;chr&gt;,
-## #   ramp_tofrom_route_direction &lt;chr&gt;, posted_speed &lt;dbl&gt;,
-## #   posted_speed_cross_street &lt;dbl&gt;, first_harmful_event &lt;chr&gt;, latitude &lt;lgl&gt;,
-## #   longitude &lt;lgl&gt;, cell_phone_in_use_flag &lt;chr&gt;, other_property_damage &lt;chr&gt;,
-## #   reporting_badge_no &lt;chr&gt;</code></pre>
 </div>
 <div id="drivers" class="section level3">
 <h3 class="hasAnchor">
 <a href="#drivers" class="anchor"></a>Drivers</h3>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Drivers"</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 538,367 x 22
-##    id    vehicle_number driver_city driver_state driver_zip_code
-##    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;        &lt;chr&gt;          
-##  1 2019~              1 PLEASANTVI~ NJ           08232          
-##  2 2019~              1 ATLANTIC C~ NJ           08401          
-##  3 2019~              2 ABSECON     NJ           08201          
-##  4 2019~              1 PLEASANTVI~ NJ           08232          
-##  5 2019~              1 ABSECON     NJ           08201          
-##  6 2019~              2 ABSECON     NJ           08201          
-##  7 2019~              1 GALLOWAY    NJ           08205          
-##  8 2019~              2 EGG HARBOR~ NJ           08234          
-##  9 2019~              1 ATLANTIC C~ NJ           08401          
-## 10 2019~              2 OCEAN CITY  NJ           08226          
-## # ... with 538,357 more rows, and 17 more variables:
-## #   driver_license_state &lt;chr&gt;, driver_dob &lt;chr&gt;, driver_sex &lt;chr&gt;,
-## #   alcohol_test_given &lt;chr&gt;, alcohol_test_type &lt;chr&gt;,
-## #   alcohol_test_results &lt;dbl&gt;, charge_1 &lt;chr&gt;, summons_1 &lt;chr&gt;,
-## #   charge_2 &lt;chr&gt;, summons_2 &lt;chr&gt;, charge_3 &lt;chr&gt;, summons_3 &lt;chr&gt;,
-## #   charge_4 &lt;chr&gt;, summons_4 &lt;chr&gt;, driver_physical_status_1 &lt;lgl&gt;,
-## #   driver_physical_status_2 &lt;chr&gt;, NA &lt;lgl&gt;</code></pre>
 </div>
 <div id="vehicles" class="section level3">
 <h3 class="hasAnchor">
 <a href="#vehicles" class="anchor"></a>Vehicles</h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Vehicles"</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 538,353 x 40
-##    id    vehicle_number insurance_compa~ owner_state make_of_vehicle
-##    &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;       &lt;chr&gt;          
-##  1 2019~              1 134              NJ          HONDA          
-##  2 2019~              1 411              NJ          VOLKSWAGEN     
-##  3 2019~              2 134              NJ          JEEP           
-##  4 2019~              1 &lt;NA&gt;             NJ          MERCURY        
-##  5 2019~              1 135              NJ          NISSAN         
-##  6 2019~              2 963              NJ          BUICK          
-##  7 2019~              1 148              NJ          FORD           
-##  8 2019~              2 054              NJ          LEXUS          
-##  9 2019~              1 487              NJ          CHEVROLET      
-## 10 2019~              2 148              NJ          TOYOTA         
-## # ... with 538,343 more rows, and 35 more variables: model_of_vehicle &lt;chr&gt;,
-## #   color_of_vehicle &lt;chr&gt;, year_of_vehicle &lt;dbl&gt;, license_plate_state &lt;chr&gt;,
-## #   vehicle_weight_rating &lt;dbl&gt;, towed &lt;lgl&gt;, removed_by &lt;dbl&gt;,
-## #   drivenleft_at_scenetowed &lt;dbl&gt;, initial_impact_location &lt;chr&gt;,
-## #   principal_damage_location &lt;chr&gt;, extent_of_damage &lt;chr&gt;,
-## #   traffic_controls_present &lt;chr&gt;, vehicle_type &lt;chr&gt;, vehicle_use &lt;chr&gt;,
-## #   special_function_vehicles &lt;chr&gt;, cargo_body_type &lt;chr&gt;,
-## #   contributing_circumstances_1 &lt;chr&gt;, contributing_circumstances_2 &lt;chr&gt;,
-## #   direction_of_travel &lt;chr&gt;, precrash_action &lt;chr&gt;,
-## #   first_sequence_of_events &lt;chr&gt;, second_sequence_of_events &lt;chr&gt;,
-## #   third_sequence_of_events &lt;chr&gt;, fourth_sequence_of_events &lt;chr&gt;,
-## #   most_harmful_event &lt;chr&gt;, oversizeoverweight_permit &lt;chr&gt;,
-## #   hazmat_status &lt;lgl&gt;, hazmat_class &lt;lgl&gt;, hazmat_placard &lt;lgl&gt;,
-## #   usdot_number &lt;chr&gt;, mcmx_number &lt;dbl&gt;, usdot__other_flag &lt;lgl&gt;,
-## #   usdot__other_number &lt;lgl&gt;, carrier_name &lt;chr&gt;, hit__run_driver_flag &lt;chr&gt;</code></pre>
 <div id="insurance-company-data" class="section level4">
 <h4 class="hasAnchor">
 <a href="#insurance-company-data" class="anchor"></a>Insurance company data</h4>
 <p>Each of the vehicle records contain a field name <code>insurance_company_code</code> that identifies the name of the insurance company that covers the vehicle involved in an accident.</p>
 <p>This code can be used to join the vehicle data with a dataset containing details for every insurance company that does business in New Jersey.</p>
 <p>Access the insurance from the package like so:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"insurance"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">insurance</span><span class="op">)</span></code></pre></div>
 <pre><code>## # A tibble: 6 x 9
 ##   ID_NO NAME         ADDRESS_1    ADDRESS_2 ADDRESS_3 CITY   STATE ZIP   NOTES  
 ##   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
-## 1 001   SAMSUNG FIR~ 25 CHALLENG~ &lt;NA&gt;      &lt;NA&gt;      RIDGE~ NJ    07660 COMM O~
-## 2 002   BROTHERHOOD~ PO BOX 2227  &lt;NA&gt;      &lt;NA&gt;      FORT ~ IN    07661 COMM O~
-## 3 003   MID-CENTURY~ 4680 WILSHI~ &lt;NA&gt;      &lt;NA&gt;      LOS A~ CA    07662 PRIV P~
-## 4 004   ACE PROPERT~ 1601 CHESTN~ PO BOX 4~ &lt;NA&gt;      PHILA~ PA    07663 COMM O~
-## 5 005   FIRST NONPR~ 111 NORTH C~ SUITE 801 &lt;NA&gt;      CHICA~ IL    07664 COMM O~
-## 6 006   EVEREST PRE~ 477 MARTINS~ &lt;NA&gt;      &lt;NA&gt;      LIBER~ NJ    07665 COMM O~</code></pre>
+## 1 001   SAMSUNG FIR… 25 CHALLENG… &lt;NA&gt;      &lt;NA&gt;      RIDGE… NJ    07660 COMM O…
+## 2 002   BROTHERHOOD… PO BOX 2227  &lt;NA&gt;      &lt;NA&gt;      FORT … IN    07661 COMM O…
+## 3 003   MID-CENTURY… 4680 WILSHI… &lt;NA&gt;      &lt;NA&gt;      LOS A… CA    07662 PRIV P…
+## 4 004   ACE PROPERT… 1601 CHESTN… PO BOX 4… &lt;NA&gt;      PHILA… PA    07663 COMM O…
+## 5 005   FIRST NONPR… 111 NORTH C… SUITE 801 &lt;NA&gt;      CHICA… IL    07664 COMM O…
+## 6 006   EVEREST PRE… 477 MARTINS… &lt;NA&gt;      &lt;NA&gt;      LIBER… NJ    07665 COMM O…</code></pre>
 <p>The insurance dataset contains a field <code>ID_NO</code> which is the same as <code>insurance_company_code</code> in the Vehicles table. This common field can be used for performing join operations.</p>
 </div>
 </div>
 <div id="pedestrians" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pedestrians" class="anchor"></a>Pedestrians</h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Pedestrians"</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 7,946 x 35
-##    id    pedestrian_numb~ physical_condit~ address_city address_state
-##    &lt;chr&gt;            &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;        &lt;chr&gt;        
-##  1 2019~                1 02               PLEASANTVIL~ NJ           
-##  2 2019~                1 04               ABSECON      NJ           
-##  3 2019~                1 03               GALLOWAY     NJ           
-##  4 2019~                1 01               LINDENWOLD   NJ           
-##  5 2019~               31 &lt;NA&gt;             TUCKERTON    NJ           
-##  6 2019~                1 03               ABSECON      NJ           
-##  7 2019~                1 02               EGG HARBOR ~ NJ           
-##  8 2019~                1 02               EGG HARBOR ~ NJ           
-##  9 2019~                1 03               ABSECON      NJ           
-## 10 2019~                1 02               ABSECON      NJ           
-## # ... with 7,936 more rows, and 30 more variables: address_zip &lt;chr&gt;,
-## #   date_of_birth &lt;chr&gt;, age &lt;chr&gt;, sex &lt;chr&gt;, alcohol_test_given &lt;chr&gt;,
-## #   alcohol_test_type &lt;chr&gt;, alcohol_test_results &lt;lgl&gt;, charge_1 &lt;chr&gt;,
-## #   summons_1 &lt;chr&gt;, charge_2 &lt;chr&gt;, summons_2 &lt;chr&gt;, charge_3 &lt;lgl&gt;,
-## #   summons_3 &lt;lgl&gt;, charge_4 &lt;chr&gt;, summons_4 &lt;chr&gt;, multi_charge_flag &lt;lgl&gt;,
-## #   traffic_controls &lt;chr&gt;, contributing_circumstances_1 &lt;chr&gt;,
-## #   contributing_circumstances_2 &lt;chr&gt;, direction_of_travel &lt;chr&gt;,
-## #   precrash_action &lt;chr&gt;, location_of_most_severe_injury &lt;chr&gt;,
-## #   type_of_most_severe_phys_injury &lt;chr&gt;, refused_medical_attention &lt;chr&gt;,
-## #   safety_equipment_used &lt;chr&gt;, hospital_code &lt;dbl&gt;, physical_status_1 &lt;chr&gt;,
-## #   physical_status_2 &lt;chr&gt;, is_bycyclist &lt;chr&gt;, is_other &lt;lgl&gt;</code></pre>
 </div>
 <div id="occupants" class="section level3">
 <h3 class="hasAnchor">
 <a href="#occupants" class="anchor"></a>Occupants</h3>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Occupants"</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 651,507 x 15
-##    id    vehicle_number occupant_number physical_condit~ position_in_on_~
-##    &lt;chr&gt;          &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;           
-##  1 2019~              1               1 &lt;NA&gt;             01              
-##  2 2019~              1               1 04               01              
-##  3 2019~              1               2 &lt;NA&gt;             06              
-##  4 2019~              2               3 04               01              
-##  5 2019~              1               1 &lt;NA&gt;             01              
-##  6 2019~              1               1 04               01              
-##  7 2019~              1               2 04               03              
-##  8 2019~              2               3 04               01              
-##  9 2019~              2               4 04               03              
-## 10 2019~              2               5 &lt;NA&gt;             06              
-## # ... with 651,497 more rows, and 10 more variables: ejection_code &lt;chr&gt;,
-## #   age &lt;chr&gt;, sex &lt;chr&gt;, location_of_most_severe_injury &lt;chr&gt;,
-## #   type_of_most_severe_phys_injury &lt;chr&gt;, refused_medical_attention &lt;chr&gt;,
-## #   safety_equipment_available &lt;chr&gt;, safety_equipment_used &lt;chr&gt;,
-## #   airbag_deployment &lt;chr&gt;, NA &lt;dbl&gt;</code></pre>
 </div>
 </div>
   </div>

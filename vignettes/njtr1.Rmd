@@ -26,19 +26,19 @@ There are 5 different tables available with NJTR-1 data and published by the NJD
 
 ### Accidents
 
-```{r}
+```{r, eval = FALSE}
 get_njtr1(year = 2019, type = "Accidents")
 ```
 
 ### Drivers
 
-```{r}
+```{r, eval = FALSE}
 get_njtr1(year = 2019, type = "Drivers")
 ```
 
 ### Vehicles
 
-```{r}
+```{r, eval = FALSE}
 get_njtr1(year = 2019, type = "Vehicles")
 ```
 
@@ -58,12 +58,12 @@ The insurance dataset contains a field `ID_NO` which is the same as `insurance_c
 
 ### Pedestrians
 
-```{r}
+```{r, eval = FALSE}
 get_njtr1(year = 2019, type = "Pedestrians")
 ```
 
 ### Occupants
 
-```{r}
+```{r, eval = FALSE}
 get_njtr1(year = 2019, type = "Occupants")
 ```
