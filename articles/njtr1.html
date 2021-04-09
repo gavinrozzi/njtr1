@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">njtr1</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.9000</span>
       </span>
     </div>
 
@@ -84,7 +84,7 @@
       <h1 data-toc-skip>Introduction to njtr1</h1>
                         <h4 class="author">Gavin Rozzi</h4>
             
-            <h4 class="date">2021-04-05</h4>
+            <h4 class="date">2021-04-09</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/gavinrozzi/njtr1/blob/master/vignettes/njtr1.Rmd"><code>vignettes/njtr1.Rmd</code></a></small>
       <div class="hidden name"><code>njtr1.Rmd</code></div>
@@ -125,15 +125,20 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"insurance"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">insurance</span><span class="op">)</span></code></pre></div>
-<pre><code>## # A tibble: 6 x 9
-##   ID_NO NAME         ADDRESS_1    ADDRESS_2 ADDRESS_3 CITY   STATE ZIP   NOTES  
-##   &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;        &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;  
-## 1 001   SAMSUNG FIR… 25 CHALLENG… &lt;NA&gt;      &lt;NA&gt;      RIDGE… NJ    07660 COMM O…
-## 2 002   BROTHERHOOD… PO BOX 2227  &lt;NA&gt;      &lt;NA&gt;      FORT … IN    07661 COMM O…
-## 3 003   MID-CENTURY… 4680 WILSHI… &lt;NA&gt;      &lt;NA&gt;      LOS A… CA    07662 PRIV P…
-## 4 004   ACE PROPERT… 1601 CHESTN… PO BOX 4… &lt;NA&gt;      PHILA… PA    07663 COMM O…
-## 5 005   FIRST NONPR… 111 NORTH C… SUITE 801 &lt;NA&gt;      CHICA… IL    07664 COMM O…
-## 6 006   EVEREST PRE… 477 MARTINS… &lt;NA&gt;      &lt;NA&gt;      LIBER… NJ    07665 COMM O…</code></pre>
+<pre><code>##   ID_NO                                            NAME              ADDRESS_1
+## 1   001 SAMSUNG FIRE AND MARINE INSURANCE COMPANY, LTD.     25 CHALLENGER ROAD
+## 2   002            BROTHERHOOD MUTUAL INSURANCE COMPANY            PO BOX 2227
+## 3   003                         MID-CENTURY INS COMPANY     4680 WILSHIRE BLVD
+## 4   004                  ACE PROPERTY &amp; CASUALTY INS CO       1601 CHESTNUT ST
+## 5   005               FIRST NONPROFIT INSURANCE COMPANY 111 NORTH CANAL STREET
+## 6   006               EVEREST PREMIER INSURANCE COMPANY  477 MARTINSVILLE ROAD
+##      ADDRESS_2 ADDRESS_3            CITY STATE   ZIP              NOTES
+## 1         &lt;NA&gt;      &lt;NA&gt; RIDGEFIELD PARK    NJ 07660          COMM ONLY
+## 2         &lt;NA&gt;      &lt;NA&gt;      FORT WAYNE    IN 07661          COMM ONLY
+## 3         &lt;NA&gt;      &lt;NA&gt;     LOS ANGELES    CA 07662 PRIV PASS AND COMM
+## 4 PO BOX 41484      &lt;NA&gt;    PHILADELPHIA    PA 07663          COMM ONLY
+## 5    SUITE 801      &lt;NA&gt;         CHICAGO    IL 07664          COMM ONLY
+## 6         &lt;NA&gt;      &lt;NA&gt;  LIBERTY CORNER    NJ 07665          COMM ONLY</code></pre>
 <p>The insurance dataset contains a field <code>ID_NO</code> which is the same as <code>insurance_company_code</code> in the Vehicles table. This common field can be used for performing join operations.</p>
 </div>
 </div>
