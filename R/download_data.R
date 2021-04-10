@@ -27,14 +27,17 @@ get_njtr1 <- function(year, type, geo = FALSE) {
   # Set base URL for data downloads
   base_url <- "https://www.state.nj.us/transportation/refdata/accident/"
 
-# Set column names based on year selected
-  if (year >= 2017) {
+# Set column names based on year selected to match NHJDOT schema
+  if (year >= 2017 & year <= 2019) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
     file_name <- paste0(base_url, as.character(year), "/NewJersey", year, type, ".zip")
-  } else if (year <= 2016 | year >= 2020) {
-    stop("Years prior to 2017 and past 2019 are not yet supported")
-  } 
+  } else if (year <= 2016 & year >= 2001) {
+    fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2001/", type, ".csv"), header = FALSE)
+    file_name <- paste0(base_url, as.character(year), "/NewJersey", year, type, ".zip")
+  } else if (year > 2019) {
+    stop("Invalid year: No data for years past 2019 is currently available")
+    }
 
   # create a temporary directory and file for downloading the data
   zip_file <- tempfile(fileext = ".zip")

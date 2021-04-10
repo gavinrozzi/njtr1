@@ -12,7 +12,7 @@ This package allows for the download of multiple tables of crash records and cle
 
 More details about the NJTR-1 crash reporting process is available through the [New Jersey Department of Transportation.](https://www.state.nj.us/transportation/refdata/accident/pdf/NJTR-1CrashReportManual12517.pdf)
 
-This package currently provides data from 2017 - 2019. We are currently working on implementing the format of the older data from 2016 prior.
+This package currently supports the download of all crash table data maintained by NJDOT from 2001-2019.
 
 ## Installation
 The latest version can be installed from CRAN by running:
