@@ -79,6 +79,8 @@ get_njtr1 <- function(year, type, geo = FALSE) {
   } else if (type == "Drivers") {
     data$driver_dob <- suppressWarnings(lubridate::mdy(data$driver_dob))
   }
-
-  return(data)
+  # Clean any empty columns
+  keep.cols <- names(data) %in% c(NA)
+  data_clean <- data [! keep.cols] 
+  return(data_clean)
 }
