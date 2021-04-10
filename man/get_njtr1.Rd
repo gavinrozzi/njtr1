@@ -2,20 +2,22 @@
 % Please edit documentation in R/download_data.R
 \name{get_njtr1}
 \alias{get_njtr1}
-\title{Download NJ car accident records for a given year}
+\title{Download New Jersey car accident records for a given year}
 \usage{
-get_njtr1(year, type)
+get_njtr1(year, type, geo = FALSE)
 }
 \arguments{
-\item{year}{Year to download crash data}
+\item{year}{Year to download crash data for}
 
 \item{type}{The table of NJDOT crash data to download}
+
+\item{geo}{Logical, whether to filter only to geotagged cases (default = FALSE)}
 }
 \value{
 tibble of all reported accidents for the year
 }
 \description{
-Download NJ car accident records for a given year
+Download New Jersey car accident records for a given year
 }
 \examples{
 get_njtr1(year = 2019, type = "Pedestrians")

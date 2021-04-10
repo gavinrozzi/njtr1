@@ -1,16 +1,18 @@
-#' Download NJ car accident records for a given year
+#' Download New Jersey car accident records for a given year
 #'
 #'
-#' @param year Year to download crash data
+#' @param year Year to download crash data for
 #' @param type The table of NJDOT crash data to download
+#' @param geo Logical, whether to filter only to geotagged cases (default = FALSE)
 #' @return tibble of all reported accidents for the year
 #' @importFrom httr http_error
 #' @importFrom stringr str_to_lower
 #' @importFrom lubridate mdy
+#' @importFrom stats complete.cases
 #' @examples
 #' get_njtr1(year = 2019, type = "Pedestrians")
 #' @export
-get_njtr1 <- function(year, type) {
+get_njtr1 <- function(year, type, geo = FALSE) {
 
   # Validate input for table selection
   tables <- c("Accidents", "Drivers", "Pedestrians", "Occupants", "Vehicles")
@@ -66,6 +68,10 @@ get_njtr1 <- function(year, type) {
   # Parse dates
   if (type == "Accidents") {
     suppressWarnings(data$crash_date <- lubridate::mdy(data$crash_date))
+    # If geo is TRUE, only return geotagged cases
+    if (geo == TRUE) {
+      data <- data[complete.cases(data[, 46:47]), ]
+    }
   } else if (type == "Pedestrians") {
     suppressWarnings(data$date_of_birth <- lubridate::mdy(data$date_of_birth))
   } else if (type == "Drivers") {
