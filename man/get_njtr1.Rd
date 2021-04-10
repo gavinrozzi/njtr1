@@ -14,7 +14,7 @@ get_njtr1(year, type, geo = FALSE)
 \item{geo}{Logical, whether to filter only to geotagged cases (default = FALSE)}
 }
 \value{
-tibble of all reported accidents for the year
+data.frame of all reported accidents for the year
 }
 \description{
 Download New Jersey car accident records for a given year

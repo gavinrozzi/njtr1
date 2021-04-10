@@ -4,9 +4,8 @@
 #' @param year Year to download crash data for
 #' @param type The table of NJDOT crash data to download
 #' @param geo Logical, whether to filter only to geotagged cases (default = FALSE)
-#' @return tibble of all reported accidents for the year
+#' @return data.frame of all reported accidents for the year
 #' @importFrom httr http_error
-#' @importFrom stringr str_to_lower
 #' @importFrom lubridate mdy
 #' @importFrom stats complete.cases
 #' @examples
@@ -27,7 +26,7 @@ get_njtr1 <- function(year, type, geo = FALSE) {
   # Set base URL for data downloads
   base_url <- "https://www.state.nj.us/transportation/refdata/accident/"
 
-# Set column names based on year selected to match NHJDOT schema
+  # Set column names based on year selected to match NHJDOT schema
   if (year >= 2017 & year <= 2019) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
@@ -37,12 +36,12 @@ get_njtr1 <- function(year, type, geo = FALSE) {
     file_name <- paste0(base_url, as.character(year), "/NewJersey", year, type, ".zip")
   } else if (year > 2019) {
     stop("Invalid year: No data for years past 2019 is currently available")
-    }
+  }
 
   # create a temporary directory and file for downloading the data
   zip_file <- tempfile(fileext = ".zip")
   td <- tempdir()
-  
+
   # Check if data is available and download the data
   if (httr::http_error(file_name)) {
     message("No internet connection or data source broken.")
@@ -51,7 +50,7 @@ get_njtr1 <- function(year, type, geo = FALSE) {
     message("njtr1: downloading data")
     utils::download.file(file_name, zip_file, mode = "wb")
   }
-  
+
   # Get name of first file in the ZIP archive
   fname <- utils::unzip(zip_file, list = TRUE)$Name[1]
 
@@ -63,11 +62,11 @@ get_njtr1 <- function(year, type, geo = FALSE) {
 
 
   # Read in the file
-  data <- utils::read.csv(fpath, header=FALSE, row.names=NULL, quote="")
+  data <- utils::read.csv(fpath, header = FALSE, row.names = NULL, quote = "")
 
   # Add field names
   names(data) <- fields$V1
-  
+
   # Parse dates
   if (type == "Accidents") {
     suppressWarnings(data$crash_date <- lubridate::mdy(data$crash_date))

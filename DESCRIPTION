@@ -16,7 +16,6 @@ BugReports: https://github.com/gavinrozzi/njtr1/issues/
 LazyData: true
 Depends:
   R (>= 3.5.0),
-  stringr,
   lubridate,
   httr
 Suggests:
