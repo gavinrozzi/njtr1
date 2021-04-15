@@ -1,11 +1,12 @@
-# cran-comments (2021-04-04)
-## Update 0.1.1
-In this update, the vignette has been updated so that it will not fail if external data is unable to be downloaded in order to address comments by the CRAN team. The vignette now does not depend on any external data sources.
+# cran-comments (2021-04-15)
+## Update 
+
+This is a resubmission. This version contains additional changes to code to ensure that the function `get_njtr1()` fails gracefully to supplement changes to the vignette. Furthermore, this update adds additional enhancements to core functionality by parsing dates and supporting the download of additional years of data.
 
 
 ## Test environments
-* local macOS Big Sur install on Apple Silicon, R 4.0.4
-* win-builder (oldrelease, devel, release)
+* local macOS Big Sur install on Apple Silicon, R 4.0.5
+* rhub (oldrelease, devel, release)
 * local Windows 10 development machine, R 4.0.4
 
 ## R CMD check results

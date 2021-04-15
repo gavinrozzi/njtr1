@@ -42,9 +42,15 @@ get_njtr1 <- function(year, type, geo = FALSE) {
   zip_file <- tempfile(fileext = ".zip")
   td <- tempdir()
 
+  # Check if internet connection exists before attempting data download
+  if (curl::has_internet() == FALSE) {
+    message("No internet connection. Please connect to the internet and try again.")
+    return(NULL)
+  }
+
   # Check if data is available and download the data
   if (httr::http_error(file_name)) {
-    message("No internet connection or data source broken.")
+    message("Data source broken. Please try again.")
     return(NULL)
   } else {
     message("njtr1: downloading data")
@@ -81,6 +87,6 @@ get_njtr1 <- function(year, type, geo = FALSE) {
   }
   # Clean any empty columns
   keep.cols <- names(data) %in% c(NA)
-  data_clean <- data [! keep.cols] 
+  data_clean <- data[!keep.cols]
   return(data_clean)
 }
