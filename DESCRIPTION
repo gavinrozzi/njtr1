@@ -14,14 +14,15 @@ Encoding: UTF-8
 URL: https://gavinrozzi.github.io/njtr1/, https://github.com/gavinrozzi/njtr1/, https://www.gavinrozzi.com/project/njtr1/
 BugReports: https://github.com/gavinrozzi/njtr1/issues/
 LazyData: true
-Depends:
-  R (>= 3.5.0),
+Imports:
   lubridate,
   httr
+Depends:
+  R (>= 3.5.0)
 Suggests:
-    knitr,
-    rmarkdown,
-    markdown
+  knitr,
+  rmarkdown,
+  markdown
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr, rmarkdown
