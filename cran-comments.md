@@ -1,7 +1,9 @@
-# cran-comments (2021-04-15)
+# cran-comments (2021-04-17)
 ## Update 
 
-This is a resubmission. This version contains additional changes to code to ensure that the function `get_njtr1()` fails gracefully to supplement changes to the vignette. Furthermore, this update adds additional enhancements to core functionality by parsing dates and supporting the download of additional years of data.
+This is a resubmission. The DESCRIPTION file has been corrected to address an issue identified by the CRAN team.
+
+This version contains additional changes to code to ensure that the function `get_njtr1()` fails gracefully to supplement changes to the vignette. Furthermore, this update adds additional enhancements to core functionality by parsing dates and supporting the download of additional years of data.
 
 
 ## Test environments

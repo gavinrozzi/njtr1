@@ -7,8 +7,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "gr@gavinrozzi.com",
            comment = c(ORCID = "0000-0002-9969-8175"))
-Description: Download and analyze crash data published by the New Jersey Department of Transportation. The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a crash that took place within New Jersey. 
-More information about these data is available from the NJDOT website: <https://www.state.nj.us/transportation/refdata/accident/rawdata01-current.shtm>.
+Description: Download and analyze car crash data published by the New Jersey Department of Transportation. 
+  The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that took place within New Jersey.. 
+  More information about these data is available from the NJDOT website: <https://www.state.nj.us/transportation/refdata/accident/rawdata01-current.shtm>.
 License: GPL-3
 Encoding: UTF-8
 URL: https://gavinrozzi.github.io/njtr1/, https://github.com/gavinrozzi/njtr1/, https://www.gavinrozzi.com/project/njtr1/
