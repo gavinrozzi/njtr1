@@ -17,9 +17,9 @@ There were no ERRORs or WARNINGs.
 
 There was 1 NOTE: 
 Possibly mis-spelled words in DESCRIPTION:
-  NJTR (10:164)
+  NJDOT (10:117)
 
-This is a proper acronym for the type of traffic data covered by this package, and can be disregarded.
+This is a proper acronym for the government agency that publishes the data used by this package, and can be disregarded.
 
 ## Downstream dependencies
 I have also run R CMD check on all downstream dependencies used by zipcodeR using revdep. There were no errors.

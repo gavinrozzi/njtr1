@@ -8,7 +8,7 @@ Authors@R:
            email = "gr@gavinrozzi.com",
            comment = c(ORCID = "0000-0002-9969-8175"))
 Description: Download and analyze motor vehicle crash data released by the New Jersey Department of Transportation (NJDOT).
-  The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that occured in New Jersey.
+  The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that occurred in New Jersey.
   3 different data tables containing data on crashes, vehicles & pedestrians released from 2001 to the present can be downloaded & cleaned using this package.
 License: GPL-3
 Encoding: UTF-8
