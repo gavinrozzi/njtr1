@@ -17,3 +17,8 @@ New argument added to select only geotagged crash data suitable for mapping (geo
 
 Fix an error that caused coordinates to be unavailable in crash data due to parsing failures
 
+# njtr1 0.3.9000 (in development)
+Added new function `read_njtr1()` for reading offline crash table data.
+
+Added example data for testing package functionality without internet connectivity.
+
