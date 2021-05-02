@@ -25,6 +25,7 @@ A tibble with 454 rows and 9 variables:
 insurance
 }
 \description{
-A tibble containing all insurance companies licensed to operate in New Jersey. Can be joined with accident data.
+A tibble containing all insurance companies licensed to operate in New Jersey.
+Can be joined with accident data.
 }
 \keyword{datasets}

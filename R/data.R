@@ -1,6 +1,7 @@
 #' Insurance companies licensed to do business in New Jersey
 #'
-#' A tibble containing all insurance companies licensed to operate in New Jersey. Can be joined with accident data.
+#' A tibble containing all insurance companies licensed to operate in New Jersey.
+#' Can be joined with accident data.
 #'
 #' @format A tibble with 454 rows and 9 variables:
 #' \describe{
