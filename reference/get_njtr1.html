@@ -131,7 +131,7 @@
     <p>Download New Jersey car accident records for a given year</p>
     </div>
 
-    <pre class="usage"><span class='fu'>get_njtr1</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>type</span>, geo <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>get_njtr1</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>type</span>, county <span class='op'>=</span> <span class='st'>"all"</span>, geo <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -143,6 +143,10 @@
     <tr>
       <th>type</th>
       <td><p>The table of NJDOT crash data to download</p></td>
+    </tr>
+    <tr>
+      <th>county</th>
+      <td><p>Specify a specific county to download data for (default = all)</p></td>
     </tr>
     <tr>
       <th>geo</th>
