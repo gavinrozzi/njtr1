@@ -17,10 +17,9 @@ New argument added to select only geotagged crash data suitable for mapping (geo
 
 Fix an error that caused coordinates to be unavailable in crash data due to parsing failures
 
-# njtr1 0.3.9000 (in development)
-Added new function `read_njtr1()` for reading offline crash table data.
+# njtr1 0.3.0
+Added new function `read_njtr1()` for reading offline crash table data. This function supports reading in and cleaning a TXT or ZIP file containing NJTR-1 data.
 
 It is now possible to download data for a specific county by specifying its name in the county argument in `get_njtr1()`. The default option still downloads data for the entire state.
 
 Added example data for testing package functionality without internet connectivity.
-

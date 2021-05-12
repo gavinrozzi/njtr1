@@ -1,16 +1,12 @@
-# cran-comments (2021-04-20)
+# cran-comments (2021-05-12)
 ## Update 
 
-This is a submission. Multiple URLs to external web resources have been removed from the DESCRIPTION file has been to address errors that
-were identified in the previous submission.
-
-This version contains additional changes to code to ensure that the function `get_njtr1()` fails gracefully to supplement changes to the vignette. Furthermore, this update adds additional enhancements to core functionality by parsing dates and supporting the download of additional years of data.
-
+This update adds an additional function, `read_njtr1()` for reading and cleaning offline data. Additionally, this update enhances the core functionality of the package by supporting downloading data for a specific county via the county argument of `get_njtr1()`
 
 ## Test environments
 * local macOS Big Sur install on Apple Silicon, R 4.0.5
 * Win-builder (oldrelease, devel, release)
-* local Windows 10 development machine, R 4.0.4
+* local Windows 10 development machine, R 4.0.5
 
 ## R CMD check results
 There were no ERRORs or WARNINGs.
@@ -21,8 +17,6 @@ Possibly mis-spelled words in DESCRIPTION:
 
 This is a proper acronym for the government agency that publishes the data used by this package, and can be disregarded.
 
-## Downstream dependencies
-I have also run R CMD check on all downstream dependencies used by zipcodeR using revdep. There were no errors.
 
 
 
