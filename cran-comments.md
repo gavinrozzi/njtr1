@@ -1,4 +1,4 @@
-# cran-comments (2021-05-12)
+# cran-comments (2021-05-14)
 ## Update 
 
 This update adds an additional function, `read_njtr1()` for reading and cleaning offline data. Additionally, this update enhances the core functionality of the package by supporting downloading data for a specific county via the county argument of `get_njtr1()`
