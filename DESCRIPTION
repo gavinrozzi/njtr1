@@ -19,7 +19,10 @@ Imports:
   lubridate,
   httr,
   curl,
-  readr
+  readr,
+  dplyr (>= 1.0.0),
+  stringr,
+  tidyselect
 Depends:
   R (>= 3.5.0)
 Suggests:

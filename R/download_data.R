@@ -1,3 +1,4 @@
+utils::globalVariables("where")
 #' Read an NJTR-1 data file that was previously downloaded
 #'
 #'
@@ -6,6 +7,11 @@
 #' @return tibble of cleaned & parsed NJTR-1 data
 #' @importFrom readr parse_number
 #' @importFrom tools file_ext
+#' @importFrom dplyr mutate
+#' @importFrom dplyr across
+#' @importFrom dplyr `%>%`
+#' @importFrom stringr str_trim
+#' @importFrom tidyselect vars_select_helpers
 #' @examples
 #' read_njtr1(system.file("extdata/testdata/Ocean2019Accidents.zip", package = "njtr1"))
 #' @export
@@ -88,12 +94,9 @@ read_njtr1 <- function(file, geo = FALSE) {
   keep.cols <- names(data) %in% c(NA)
   data_clean <- data[!keep.cols]
 
-  # Remove excess whitespace in every column
-  for (col in colnames(data_clean)) {
-    if (class(data_clean$col) == "character") {
-      data_clean$col <- trimws(data_clean$col)
-    }
-  }
+  # Remove excess whitespace in every character column
+  data_clean <- data_clean %>% 
+    dplyr::mutate(dplyr::across(where(is.character), stringr::str_trim))
 
   return(data_clean)
 }
