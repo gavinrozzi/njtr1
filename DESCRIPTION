@@ -1,6 +1,6 @@
 Package: njtr1
 Title: Download, Analyze & Clean New Jersey Car Crash Data
-Version: 0.3.0
+Version: 0.4.9000
 Authors@R: 
     person(given = "Gavin",
            family = "Rozzi",
