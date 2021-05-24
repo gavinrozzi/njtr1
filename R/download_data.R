@@ -101,7 +101,7 @@ read_njtr1 <- function(file, geo = FALSE) {
   return(data_clean)
 }
 
-#' Download New Jersey car accident records for a given year (refactored)
+#' Download New Jersey car accident records for a given year
 #'
 #'
 #' @param year Year to download crash data for
