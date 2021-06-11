@@ -4,12 +4,14 @@
 \alias{get_njtr1}
 \title{Download New Jersey car accident records for a given year}
 \usage{
-get_njtr1(year, type, geo = FALSE)
+get_njtr1(year, type, county = "all", geo = FALSE)
 }
 \arguments{
 \item{year}{Year to download crash data for}
 
 \item{type}{The table of NJDOT crash data to download}
+
+\item{county}{Specify a specific county to download data for (default = all)}
 
 \item{geo}{Logical, whether to filter only to geotagged cases (default = FALSE)}
 }

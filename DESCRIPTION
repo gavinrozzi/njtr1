@@ -1,6 +1,6 @@
 Package: njtr1
 Title: Download, Analyze & Clean New Jersey Car Crash Data
-Version: 0.2.0
+Version: 0.4.9000
 Authors@R: 
     person(given = "Gavin",
            family = "Rozzi",
@@ -18,7 +18,11 @@ LazyData: true
 Imports:
   lubridate,
   httr,
-  curl
+  curl,
+  readr,
+  dplyr (>= 1.0.0),
+  stringr,
+  tidyselect
 Depends:
   R (>= 3.5.0)
 Suggests:
