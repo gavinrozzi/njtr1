@@ -95,7 +95,7 @@ read_njtr1 <- function(file, geo = FALSE) {
   data_clean <- data[!keep.cols]
 
   # Remove excess whitespace in every character column
-  data_clean <- data_clean %>% 
+  data_clean <- data_clean %>%
     dplyr::mutate(dplyr::across(where(is.character), stringr::str_trim))
 
   return(data_clean)
