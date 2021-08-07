@@ -27,3 +27,6 @@ Added example data for testing package functionality without internet connectivi
 # njtr1 0.3.1
 Excess white space is now removed by default for character columns.
 `get_njtr1()` has been refactored to utilize `read_njtr1()` on downloaded files to avoid repetitions in code & better maintainability.
+
+# njtr1 0.4.0.9000 (in progress)
+Fixed an issue with lazydata on Windows
