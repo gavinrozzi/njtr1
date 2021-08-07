@@ -106,47 +106,353 @@
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#njtr1-" class="anchor"></a>njtr1 <a href="https://gavinrozzi.github.io/njtr1/"><img src="reference/figures/logo.png" align="right" height="139"></a>
 </h1></div>
-<p><!-- badges: start --> <a href="https://github.com/gavinrozzi/njtr1/actions"><img src="https://github.com/gavinrozzi/njtr1/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a> <a href="https://www.r-pkg.org/badges/version-last-release/zipcodeR"><img src="https://www.r-pkg.org/badges/version-last-release/njtr1" alt="CRAN Status"></a> <a href="https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR"><img src="https://cranlogs.r-pkg.org/badges/grand-total/njtr1" alt="CRAN Downloads"></a> <!-- badges: end --></p>
-<p><code>njtr1</code> is an R package that provides provides an interface to easily download car crash records maintained by the New Jersey Department of Transportation. These records are collected from police officers in New Jersey when they complete the form NJTR-1 following a motor vehicle crash that is reported to law enforcement.</p>
+<!-- badges: start -->
+
+<p><a href="https://gavinrozzi.github.io/njtr1/index.html">njtr1</a> is an R package that provides provides an interface to easily download car crash records maintained by the New Jersey Department of Transportation. These records are collected from police officers in New Jersey when they complete the form NJTR-1 following a motor vehicle crash that is reported to law enforcement.</p>
 <p>This package allows for the download of multiple tables of crash records and cleans and formats the data for analysis.</p>
 <p>More details about the NJTR-1 crash reporting process is available through the <a href="https://www.state.nj.us/transportation/refdata/accident/pdf/NJTR-1CrashReportManual12517.pdf">New Jersey Department of Transportation.</a></p>
 <p>This package currently supports the download of all crash table data maintained by NJDOT from 2001-2019.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>The latest version can be installed from CRAN by running:</p>
+<p>You can install the released version of njtr1 from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"njtr1"</span><span class="op">)</span></code></pre></div>
-<p>The latest development version can be installed like so using devtools:</p>
+<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gavinrozzi/njtr1"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"gavinrozzi/njtr1"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="usage" class="section level2">
+<div id="examples" class="section level2">
 <h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Load the njtr1 library into R</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gavinrozzi.github.io/njtr1/">njtr1</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://gavinrozzi.github.io/njtr1/">njtr1</a></span><span class="op">)</span>
 
 <span class="co"># Get crash data for the year 2019</span>
-<span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Accidents"</span><span class="op">)</span>
+<span class="va">acc_19</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Accidents"</span><span class="op">)</span>
+<span class="co">#&gt; njtr1: downloading data</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">acc_19</span><span class="op">)</span>
+<span class="co">#&gt;                       id county_name municipality_name crash_date</span>
+<span class="co">#&gt; 1      201901011902-0465    ATLANTIC      ABSECON CITY 2019-02-14</span>
+<span class="co">#&gt; 2 20190101I-02019-002921    ATLANTIC      ABSECON CITY 2019-01-28</span>
+<span class="co">#&gt; 3  20190101I-2019-000096    ATLANTIC      ABSECON CITY 2019-01-01</span>
+<span class="co">#&gt; 4  20190101I-2019-000242    ATLANTIC      ABSECON CITY 2019-01-02</span>
+<span class="co">#&gt; 5  20190101I-2019-000962    ATLANTIC      ABSECON CITY 2019-01-09</span>
+<span class="co">#&gt; 6  20190101I-2019-001122    ATLANTIC      ABSECON CITY 2019-01-11</span>
+<span class="co">#&gt;   crash_day_of_week crash_time police_dept_code police_department</span>
+<span class="co">#&gt; 1                TH       1005                1  ATLANTIC CITY PD</span>
+<span class="co">#&gt; 2                MO        953                1   ABSECON CITY PD</span>
+<span class="co">#&gt; 3                TU        853                1   ABSECON CITY PD</span>
+<span class="co">#&gt; 4                WE       2200                1   ABSECON CITY PD</span>
+<span class="co">#&gt; 5                WE       1253                1   ABSECON CITY PD</span>
+<span class="co">#&gt; 6                FR        855                1   ABSECON CITY PD</span>
+<span class="co">#&gt;   police_station total_killed total_injured pedestrians_killed</span>
+<span class="co">#&gt; 1                           0             0                  0</span>
+<span class="co">#&gt; 2                           0             2                  0</span>
+<span class="co">#&gt; 3                           0             0                  0</span>
+<span class="co">#&gt; 4                           0             4                  0</span>
+<span class="co">#&gt; 5                           0             0                  0</span>
+<span class="co">#&gt; 6                           0             0                  0</span>
+<span class="co">#&gt;   pedestrians_injured severity intersection alcohol_involved hazmat_involved</span>
+<span class="co">#&gt; 1                   0        P            B                N               N</span>
+<span class="co">#&gt; 2                   0        I            B                N               N</span>
+<span class="co">#&gt; 3                   0        P            B                N               N</span>
+<span class="co">#&gt; 4                   0        I            I                N               N</span>
+<span class="co">#&gt; 5                   0        P            B                N               N</span>
+<span class="co">#&gt; 6                   0        P            B                N               N</span>
+<span class="co">#&gt;   crash_type_code total_vehicles_involved         crash_location</span>
+<span class="co">#&gt; 1              11                       1                  US 30</span>
+<span class="co">#&gt; 2               1                       2              ROUTE 585</span>
+<span class="co">#&gt; 3              11                       1 ATLANTIC COUNTY 646 II</span>
+<span class="co">#&gt; 4               3                       2    ATLANTIC COUNTY 601</span>
+<span class="co">#&gt; 5               1                       2    ATLANTIC COUNTY 651</span>
+<span class="co">#&gt; 6               2                       2    ATLANTIC COUNTY 651</span>
+<span class="co">#&gt;   location_direction route route_suffix sri_std_rte_identifier milepost</span>
+<span class="co">#&gt; 1                  W    30                          00000030__    54.30</span>
+<span class="co">#&gt; 2                      585                          00000585__     9.23</span>
+<span class="co">#&gt; 3                      646            2             010006462_     0.16</span>
+<span class="co">#&gt; 4                      601                          01000601__     0.68</span>
+<span class="co">#&gt; 5                      651                          01000651__    12.00</span>
+<span class="co">#&gt; 6                      651                          01000651__    11.95</span>
+<span class="co">#&gt;   road_system road_character road_horizontal_alignment road_grade</span>
+<span class="co">#&gt; 1           2             NA                         1          4</span>
+<span class="co">#&gt; 2           5             NA                         1          4</span>
+<span class="co">#&gt; 3           5             NA                         2          6</span>
+<span class="co">#&gt; 4           5             NA                         1          4</span>
+<span class="co">#&gt; 5           5             NA                         1          4</span>
+<span class="co">#&gt; 6           5             NA                         1          4</span>
+<span class="co">#&gt;   road_surface_type surface_condition light_condition environmental_condition</span>
+<span class="co">#&gt; 1                 2                 1               1                       1</span>
+<span class="co">#&gt; 2                 2                 1               1                       1</span>
+<span class="co">#&gt; 3                 2                 2               1                       1</span>
+<span class="co">#&gt; 4                 2                 1               7                       1</span>
+<span class="co">#&gt; 5                 2                 1               1                       1</span>
+<span class="co">#&gt; 6                 2                 1               1                       1</span>
+<span class="co">#&gt;   road_divided_by temporary_traffic_control_zone distance_to_cross_street</span>
+<span class="co">#&gt; 1               1                              1                       NA</span>
+<span class="co">#&gt; 2               5                              1                      209</span>
+<span class="co">#&gt; 3               5                              1                      821</span>
+<span class="co">#&gt; 4               5                              1                       NA</span>
+<span class="co">#&gt; 5               5                              1                      100</span>
+<span class="co">#&gt; 6               5                              1                      158</span>
+<span class="co">#&gt;   unit_of_measurement directn_from_cross_street           cross_street_name</span>
+<span class="co">#&gt; 1                                                                          </span>
+<span class="co">#&gt; 2                  FE                         N W BOLTON AVE / E BOLTON AVE</span>
+<span class="co">#&gt; 3                  FE                         E    US 30 / WHITE HORSE PIKE</span>
+<span class="co">#&gt; 4                  AT                           CR 651 / MILL AVE / MILL RD</span>
+<span class="co">#&gt; 5                  FE                         N        US 30 / ABSECON BLVD</span>
+<span class="co">#&gt; 6                  FE                         S        US 30 / ABSECON BLVD</span>
+<span class="co">#&gt;   is_ramp ramp_tofrom_route_name ramp_tofrom_route_direction posted_speed</span>
+<span class="co">#&gt; 1      NA                                                              50</span>
+<span class="co">#&gt; 2      NA                                                              35</span>
+<span class="co">#&gt; 3      NA                                                              35</span>
+<span class="co">#&gt; 4      NA                                                              40</span>
+<span class="co">#&gt; 5      NA                                                              35</span>
+<span class="co">#&gt; 6      NA                                                              35</span>
+<span class="co">#&gt;   posted_speed_cross_street first_harmful_event latitude longitude</span>
+<span class="co">#&gt; 1                        NA                  NA       NA        NA</span>
+<span class="co">#&gt; 2                        25                  26       NA        NA</span>
+<span class="co">#&gt; 3                        50                  48       NA        NA</span>
+<span class="co">#&gt; 4                        35                  26       NA        NA</span>
+<span class="co">#&gt; 5                        40                  26       NA        NA</span>
+<span class="co">#&gt; 6                        40                  26       NA        NA</span>
+<span class="co">#&gt;   cell_phone_in_use_flag other_property_damage reporting_badge_no</span>
+<span class="co">#&gt; 1                      N                                      840</span>
+<span class="co">#&gt; 2                      N                                      861</span>
+<span class="co">#&gt; 3                      N                                      864</span>
+<span class="co">#&gt; 4                      N                                      846</span>
+<span class="co">#&gt; 5                      N                                      849</span>
+<span class="co">#&gt; 6                      N                                      847</span>
 
 <span class="co"># Get vehicle data for the year 2019</span>
-<span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Vehicles"</span><span class="op">)</span>
+<span class="va">veh_19</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Vehicles"</span><span class="op">)</span>
+<span class="co">#&gt; njtr1: downloading data</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">veh_19</span><span class="op">)</span>
+<span class="co">#&gt;                       id vehicle_number insurance_company_code owner_state</span>
+<span class="co">#&gt; 1      201901011902-0465              1                    134          NJ</span>
+<span class="co">#&gt; 2 20190101I-02019-002921              1                    411          NJ</span>
+<span class="co">#&gt; 3 20190101I-02019-002921              2                    134          NJ</span>
+<span class="co">#&gt; 4  20190101I-2019-000096              1                     NA          NJ</span>
+<span class="co">#&gt; 5  20190101I-2019-000242              1                    135          NJ</span>
+<span class="co">#&gt; 6  20190101I-2019-000242              2                    963          NJ</span>
+<span class="co">#&gt;   make_of_vehicle model_of_vehicle color_of_vehicle year_of_vehicle</span>
+<span class="co">#&gt; 1           HONDA       ELEMENT LX               RD            2005</span>
+<span class="co">#&gt; 2      VOLKSWAGEN              JET               GY            2017</span>
+<span class="co">#&gt; 3            JEEP               GC               BL            2006</span>
+<span class="co">#&gt; 4         MERCURY              GRA               BK            2006</span>
+<span class="co">#&gt; 5          NISSAN              PAT               TN            1998</span>
+<span class="co">#&gt; 6           BUICK              LAC               BL            2011</span>
+<span class="co">#&gt;   license_plate_state vehicle_weight_rating towed removed_by</span>
+<span class="co">#&gt; 1                  NJ                                     NA</span>
+<span class="co">#&gt; 2                  NJ                                      3</span>
+<span class="co">#&gt; 3                  NJ                                      3</span>
+<span class="co">#&gt; 4                  NJ                                      3</span>
+<span class="co">#&gt; 5                  NJ                                      3</span>
+<span class="co">#&gt; 6                  NJ                                      3</span>
+<span class="co">#&gt;   drivenleft_at_scenetowed initial_impact_location principal_damage_location</span>
+<span class="co">#&gt; 1                        3                      11                        12</span>
+<span class="co">#&gt; 2                        3                      12                        12</span>
+<span class="co">#&gt; 3                        1                       6                         6</span>
+<span class="co">#&gt; 4                        3                      11                        11</span>
+<span class="co">#&gt; 5                        3                      12                        12</span>
+<span class="co">#&gt; 6                        3                      10                        10</span>
+<span class="co">#&gt;   extent_of_damage traffic_controls_present vehicle_type vehicle_use</span>
+<span class="co">#&gt; 1                4                        4            4           1</span>
+<span class="co">#&gt; 2                4                        4            1           1</span>
+<span class="co">#&gt; 3                3                        4            4           1</span>
+<span class="co">#&gt; 4                4                        4            1           2</span>
+<span class="co">#&gt; 5                4                        3            4           1</span>
+<span class="co">#&gt; 6                4                        3            1           1</span>
+<span class="co">#&gt;   special_function_vehicles cargo_body_type contributing_circumstances_1</span>
+<span class="co">#&gt; 1                        NA              NA                            2</span>
+<span class="co">#&gt; 2                        NA              NA                           20</span>
+<span class="co">#&gt; 3                        NA              NA                           25</span>
+<span class="co">#&gt; 4                         6              NA                           51</span>
+<span class="co">#&gt; 5                        NA              NA                            3</span>
+<span class="co">#&gt; 6                        NA              NA                           25</span>
+<span class="co">#&gt;   contributing_circumstances_2 direction_of_travel precrash_action</span>
+<span class="co">#&gt; 1                           NA                   4               1</span>
+<span class="co">#&gt; 2                            2                   3               1</span>
+<span class="co">#&gt; 3                           NA                   3               8</span>
+<span class="co">#&gt; 4                           NA                   4              16</span>
+<span class="co">#&gt; 5                           NA                   2               1</span>
+<span class="co">#&gt; 6                           NA                   1               1</span>
+<span class="co">#&gt;   first_sequence_of_events second_sequence_of_events third_sequence_of_events</span>
+<span class="co">#&gt; 1                       48                        NA                       NA</span>
+<span class="co">#&gt; 2                       26                        NA                       NA</span>
+<span class="co">#&gt; 3                       26                        NA                       NA</span>
+<span class="co">#&gt; 4                       48                        NA                       NA</span>
+<span class="co">#&gt; 5                       26                        NA                       NA</span>
+<span class="co">#&gt; 6                       26                        NA                       NA</span>
+<span class="co">#&gt;   fourth_sequence_of_events most_harmful_event oversizeoverweight_permit</span>
+<span class="co">#&gt; 1                        NA                 NA                        NA</span>
+<span class="co">#&gt; 2                        NA                 26                        NA</span>
+<span class="co">#&gt; 3                        NA                 26                        NA</span>
+<span class="co">#&gt; 4                        NA                 48                        NA</span>
+<span class="co">#&gt; 5                        NA                 26                        NA</span>
+<span class="co">#&gt; 6                        NA                 26                        NA</span>
+<span class="co">#&gt;   hazmat_status hazmat_class hazmat_placard usdot_number mcmx_number</span>
+<span class="co">#&gt; 1                                                                   </span>
+<span class="co">#&gt; 2                                                                   </span>
+<span class="co">#&gt; 3                                                                   </span>
+<span class="co">#&gt; 4                                                                   </span>
+<span class="co">#&gt; 5                                                                   </span>
+<span class="co">#&gt; 6                                                                   </span>
+<span class="co">#&gt;   usdot__other_flag usdot__other_number carrier_name hit__run_driver_flag</span>
+<span class="co">#&gt; 1                NA                  NA                                  </span>
+<span class="co">#&gt; 2                NA                  NA                                  </span>
+<span class="co">#&gt; 3                NA                  NA                                  </span>
+<span class="co">#&gt; 4                NA                  NA                                  </span>
+<span class="co">#&gt; 5                NA                  NA                                  </span>
+<span class="co">#&gt; 6                NA                  NA</span>
 
 <span class="co"># Get driver data for the year 2019</span>
-<span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Drivers"</span><span class="op">)</span>
+<span class="va">driv_19</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Drivers"</span><span class="op">)</span>
+<span class="co">#&gt; njtr1: downloading data</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">driv_19</span><span class="op">)</span>
+<span class="co">#&gt;                       id vehicle_number   driver_city driver_state</span>
+<span class="co">#&gt; 1      201901011902-0465              1 PLEASANTVILLE           NJ</span>
+<span class="co">#&gt; 2 20190101I-02019-002921              1 ATLANTIC CITY           NJ</span>
+<span class="co">#&gt; 3 20190101I-02019-002921              2       ABSECON           NJ</span>
+<span class="co">#&gt; 4  20190101I-2019-000096              1 PLEASANTVILLE           NJ</span>
+<span class="co">#&gt; 5  20190101I-2019-000242              1       ABSECON           NJ</span>
+<span class="co">#&gt; 6  20190101I-2019-000242              2       ABSECON           NJ</span>
+<span class="co">#&gt;   driver_zip_code driver_license_state driver_dob driver_sex alcohol_test_given</span>
+<span class="co">#&gt; 1           08232                   NJ 1983-10-17          F                  N</span>
+<span class="co">#&gt; 2           08401                   NJ 1997-10-07          F                  N</span>
+<span class="co">#&gt; 3           08201                   NJ 1990-08-16          F                  N</span>
+<span class="co">#&gt; 4           08232                   NJ 1958-07-02          M                  N</span>
+<span class="co">#&gt; 5           08201                   NJ 1973-08-30          F                  N</span>
+<span class="co">#&gt; 6           08201                   NJ 1985-08-12          M                  N</span>
+<span class="co">#&gt;   alcohol_test_type alcohol_test_results                 charge_1 summons_1</span>
+<span class="co">#&gt; 1                                                                          </span>
+<span class="co">#&gt; 2                                        39:4-97 CARELESS DRIVING E19000154</span>
+<span class="co">#&gt; 3                                                                          </span>
+<span class="co">#&gt; 4                                                                          </span>
+<span class="co">#&gt; 5                                                         39:4-81 E19000016</span>
+<span class="co">#&gt; 6                                                                          </span>
+<span class="co">#&gt;   charge_2 summons_2 charge_3 summons_3 charge_4 summons_4</span>
+<span class="co">#&gt; 1                                                         </span>
+<span class="co">#&gt; 2                                                         </span>
+<span class="co">#&gt; 3                                                         </span>
+<span class="co">#&gt; 4                                                         </span>
+<span class="co">#&gt; 5                                                         </span>
+<span class="co">#&gt; 6                                                         </span>
+<span class="co">#&gt;   driver_physical_status_1 driver_physical_status_2</span>
+<span class="co">#&gt; 1                       NA                       NA</span>
+<span class="co">#&gt; 2                       NA                       NA</span>
+<span class="co">#&gt; 3                       NA                       NA</span>
+<span class="co">#&gt; 4                       NA                       NA</span>
+<span class="co">#&gt; 5                       NA                       NA</span>
+<span class="co">#&gt; 6                       NA                       NA</span>
 
 <span class="co"># Get occupant data for the year 2019</span>
-<span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Occupants"</span><span class="op">)</span>
+<span class="va">occ_19</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Occupants"</span><span class="op">)</span>
+<span class="co">#&gt; njtr1: downloading data</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">occ_19</span><span class="op">)</span>
+<span class="co">#&gt;                       id vehicle_number occupant_number physical_condition</span>
+<span class="co">#&gt; 1      201901011902-0465              1               1                 NA</span>
+<span class="co">#&gt; 2 20190101I-02019-002921              1               1                  4</span>
+<span class="co">#&gt; 3 20190101I-02019-002921              1               2                 NA</span>
+<span class="co">#&gt; 4 20190101I-02019-002921              2               3                  4</span>
+<span class="co">#&gt; 5  20190101I-2019-000096              1               1                 NA</span>
+<span class="co">#&gt; 6  20190101I-2019-000242              1               1                  4</span>
+<span class="co">#&gt;   position_in_on_vehicle ejection_code age sex location_of_most_severe_injury</span>
+<span class="co">#&gt; 1                      1             1  35   F                             NA</span>
+<span class="co">#&gt; 2                      1             1  21   F                              5</span>
+<span class="co">#&gt; 3                      6             1   1   F                             NA</span>
+<span class="co">#&gt; 4                      1             1  28   F                              1</span>
+<span class="co">#&gt; 5                      1             1  60   M                             NA</span>
+<span class="co">#&gt; 6                      1             1  45   F                              5</span>
+<span class="co">#&gt;   type_of_most_severe_phys_injury refused_medical_attention</span>
+<span class="co">#&gt; 1                              NA                        NA</span>
+<span class="co">#&gt; 2                               8                         2</span>
+<span class="co">#&gt; 3                               0                         2</span>
+<span class="co">#&gt; 4                               8                         1</span>
+<span class="co">#&gt; 5                              NA                         1</span>
+<span class="co">#&gt; 6                               8                         2</span>
+<span class="co">#&gt;   safety_equipment_available safety_equipment_used airbag_deployment</span>
+<span class="co">#&gt; 1                         11                    11                 1</span>
+<span class="co">#&gt; 2                         11                    11                 4</span>
+<span class="co">#&gt; 3                          5                     5                 4</span>
+<span class="co">#&gt; 4                         11                     4                NA</span>
+<span class="co">#&gt; 5                         11                     4                NA</span>
+<span class="co">#&gt; 6                         11                     4                NA</span>
 
 <span class="co"># Get pedestrian data for the year 2019</span>
-<span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Pedestrians"</span><span class="op">)</span></code></pre></div>
-</div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
-<p>Documentation for the current release <a href="https://gavinrozzi.github.io/njtr1/">is available here.</a> See the <a href="https://gavinrozzi.github.io/njtr1/reference/">reference section</a> for full details on how to use each of the functions provided by <code>njtr1</code>.</p>
+<span class="va">ped_19</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_njtr1.html">get_njtr1</a></span><span class="op">(</span>year <span class="op">=</span> <span class="fl">2019</span>, type <span class="op">=</span> <span class="st">"Pedestrians"</span><span class="op">)</span>
+<span class="co">#&gt; njtr1: downloading data</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">ped_19</span><span class="op">)</span>
+<span class="co">#&gt;                      id pedestrian_number physical_condition  address_city</span>
+<span class="co">#&gt; 1 20190101I-2019-003261                 1                  2 PLEASANTVILLE</span>
+<span class="co">#&gt; 2 20190101I-2019-005077                 1                  4       ABSECON</span>
+<span class="co">#&gt; 3 20190101I-2019-014064                 1                  3      GALLOWAY</span>
+<span class="co">#&gt; 4 20190101I-2019-021064                 1                  1    LINDENWOLD</span>
+<span class="co">#&gt; 5 20190101I-2019-025773                31                 NA     TUCKERTON</span>
+<span class="co">#&gt; 6 20190101I-2019-030896                 1                  3       ABSECON</span>
+<span class="co">#&gt;   address_state address_zip date_of_birth age sex alcohol_test_given</span>
+<span class="co">#&gt; 1            NJ        8232    1974-12-31  44   M                   </span>
+<span class="co">#&gt; 2            NJ        8201    1959-04-07  59   M                   </span>
+<span class="co">#&gt; 3            NJ        8205    1997-10-03  21   F                   </span>
+<span class="co">#&gt; 4            NJ        8021    1977-01-27  42   M                   </span>
+<span class="co">#&gt; 5            NJ        8087    1975-03-20  44   M                   </span>
+<span class="co">#&gt; 6            NJ        8201    1959-04-07  60   M                   </span>
+<span class="co">#&gt;   alcohol_test_type alcohol_test_results charge_1 summons_1 charge_2 summons_2</span>
+<span class="co">#&gt; 1                                     NA                                      </span>
+<span class="co">#&gt; 2                                     NA                                      </span>
+<span class="co">#&gt; 3                                     NA                                      </span>
+<span class="co">#&gt; 4                                     NA                                      </span>
+<span class="co">#&gt; 5                                     NA                                      </span>
+<span class="co">#&gt; 6                                     NA                                      </span>
+<span class="co">#&gt;   charge_3 summons_3 charge_4 summons_4 multi_charge_flag traffic_controls</span>
+<span class="co">#&gt; 1                                                      NA                3</span>
+<span class="co">#&gt; 2                                                      NA                3</span>
+<span class="co">#&gt; 3                                                      NA                3</span>
+<span class="co">#&gt; 4                                                      NA                3</span>
+<span class="co">#&gt; 5                                                      NA                3</span>
+<span class="co">#&gt; 6                                                      NA                3</span>
+<span class="co">#&gt;   contributing_circumstances_1 contributing_circumstances_2 direction_of_travel</span>
+<span class="co">#&gt; 1                           73                           NA                   3</span>
+<span class="co">#&gt; 2                           73                           74                   2</span>
+<span class="co">#&gt; 3                           73                           NA                   3</span>
+<span class="co">#&gt; 4                           71                           72                   1</span>
+<span class="co">#&gt; 5                           29                           NA                   2</span>
+<span class="co">#&gt; 6                           73                           NA                   2</span>
+<span class="co">#&gt;   precrash_action location_of_most_severe_injury</span>
+<span class="co">#&gt; 1              43                              1</span>
+<span class="co">#&gt; 2              33                             11</span>
+<span class="co">#&gt; 3              43                              8</span>
+<span class="co">#&gt; 4              42                              1</span>
+<span class="co">#&gt; 5               1                             NA</span>
+<span class="co">#&gt; 6              43                             10</span>
+<span class="co">#&gt;   type_of_most_severe_phys_injury refused_medical_attention</span>
+<span class="co">#&gt; 1                               4                         2</span>
+<span class="co">#&gt; 2                               8                         2</span>
+<span class="co">#&gt; 3                               5                         2</span>
+<span class="co">#&gt; 4                               4                        NA</span>
+<span class="co">#&gt; 5                              NA                        NA</span>
+<span class="co">#&gt; 6                               8                         2</span>
+<span class="co">#&gt;   safety_equipment_used hospital_code physical_status_1 physical_status_2</span>
+<span class="co">#&gt; 1                     1          5101                 1                NA</span>
+<span class="co">#&gt; 2                    NA          5104                 1                NA</span>
+<span class="co">#&gt; 3                     1          5104                 1                NA</span>
+<span class="co">#&gt; 4                    NA            NA                 0                NA</span>
+<span class="co">#&gt; 5                    NA            NA                 1                NA</span>
+<span class="co">#&gt; 6                    NA          5104                 1                NA</span>
+<span class="co">#&gt;   is_bycyclist is_other</span>
+<span class="co">#&gt; 1                      </span>
+<span class="co">#&gt; 2                      </span>
+<span class="co">#&gt; 3                      </span>
+<span class="co">#&gt; 4                      </span>
+<span class="co">#&gt; 5            Y         </span>
+<span class="co">#&gt; 6</span></code></pre></div>
 </div>
 </div>
   </div>
@@ -178,7 +484,15 @@
 </ul>
 </div>
 
-  </div>
+  <div class="dev-status">
+<h2>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/gavinrozzi/njtr1/actions"><img src="https://github.com/gavinrozzi/njtr1/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://www.r-pkg.org/badges/version-last-release/zipcodeR"><img src="https://www.r-pkg.org/badges/version-last-release/njtr1" alt="CRAN Status"></a></li>
+<li><a href="https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR"><img src="https://cranlogs.r-pkg.org/badges/grand-total/njtr1" alt="CRAN Downloads"></a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
