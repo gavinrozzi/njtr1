@@ -1,0 +1,80 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# njtr1 <a href='https://gavinrozzi.github.io/njtr1/'><img src='man/figures/logo.png' align="right" height="139" /></a>
+
+ <!-- badges: start -->
+  [![R-CMD-check](https://github.com/gavinrozzi/njtr1/workflows/R-CMD-check/badge.svg)](https://github.com/gavinrozzi/njtr1/actions)
+  [![CRAN Status](https://www.r-pkg.org/badges/version-last-release/njtr1)](https://www.r-pkg.org/badges/version-last-release/zipcodeR)
+  [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/grand-total/njtr1)](https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR)
+  <!-- badges: end -->
+
+[njtr1](https://gavinrozzi.github.io/njtr1/index.html) is an R package that provides provides an interface to easily download car crash records maintained by the New Jersey Department of Transportation. These records are collected from police officers in New Jersey when they complete the form NJTR-1 following a motor vehicle crash that is reported to law enforcement.
+
+This package allows for the download of multiple tables of crash records and cleans and formats the data for analysis.
+
+More details about the NJTR-1 crash reporting process is available through the [New Jersey Department of Transportation.](https://www.state.nj.us/transportation/refdata/accident/pdf/NJTR-1CrashReportManual12517.pdf)
+
+This package currently supports the download of all crash table data maintained by NJDOT from 2001-2019.
+
+## Installation
+
+You can install the released version of njtr1 from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("njtr1")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("gavinrozzi/njtr1")
+```
+## Examples
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(njtr1)
+
+# Get crash data for the year 2019
+acc_19 <- get_njtr1(year = 2019, type = "Accidents")
+
+head(acc_19)
+
+# Get vehicle data for the year 2019
+veh_19 <- get_njtr1(year = 2019, type = "Vehicles")
+
+head(veh_19)
+
+# Get driver data for the year 2019
+driv_19 <- get_njtr1(year = 2019, type = "Drivers")
+
+head(driv_19)
+
+# Get occupant data for the year 2019
+occ_19 <- get_njtr1(year = 2019, type = "Occupants")
+
+head(occ_19)
+
+# Get pedestrian data for the year 2019
+ped_19 <- get_njtr1(year = 2019, type = "Pedestrians")
+
+head(ped_19)
+
+
+```
+

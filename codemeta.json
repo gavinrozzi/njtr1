@@ -1,14 +1,21 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "njtr1",
   "description": "Download and analyze motor vehicle crash data released by the New Jersey Department of Transportation (NJDOT).\n  The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that occurred in New Jersey.\n  3 different data tables containing data on crashes, vehicles & pedestrians released from 2001 to the present can be downloaded & cleaned using this package.",
   "name": "njtr1: Download, Analyze & Clean New Jersey Car Crash Data",
   "codeRepository": "https://github.com/gavinrozzi/njtr1/",
-  "relatedLink": ["https://gavinrozzi.github.io/njtr1/", "https://www.gavinrozzi.com/project/njtr1/", "https://CRAN.R-project.org/package=njtr1"],
+  "relatedLink": [
+    "https://gavinrozzi.github.io/njtr1/",
+    "https://www.gavinrozzi.com/project/njtr1/",
+    "https://CRAN.R-project.org/package=njtr1"
+  ],
   "issueTracker": "https://github.com/gavinrozzi/njtr1/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.4.9000",
+  "version": "0.3.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -175,5 +182,6 @@
   ],
   "releaseNotes": "https://github.com/gavinrozzi/njtr1/blob/master/NEWS.md",
   "readme": "https://github.com/gavinrozzi/njtr1/blob/main/README.md",
-  "fileSize": "909.743KB"
+  "fileSize": "931.063KB",
+  "contIntegration": "https://github.com/gavinrozzi/njtr1/actions"
 }
