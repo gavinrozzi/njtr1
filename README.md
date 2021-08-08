@@ -6,9 +6,9 @@
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/gavinrozzi/njtr1/workflows/R-CMD-check/badge.svg)](https://github.com/gavinrozzi/njtr1/actions)
 [![CRAN
-Status](https://www.r-pkg.org/badges/version-last-release/njtr1)](https://www.r-pkg.org/badges/version-last-release/zipcodeR)
+Status](https://www.r-pkg.org/badges/version-last-release/njtr1)](https://www.r-pkg.org/badges/version-last-release/njtr1)
 [![CRAN
-Downloads](https://cranlogs.r-pkg.org/badges/grand-total/njtr1)](https://cranlogs.r-pkg.org/badges/grand-total/zipcodeR)
+Downloads](https://cranlogs.r-pkg.org/badges/grand-total/njtr1)](https://cranlogs.r-pkg.org/badges/grand-total/njtr1)
 <!-- badges: end -->
 
 [njtr1](https://gavinrozzi.github.io/njtr1/index.html) is an R package
