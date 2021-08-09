@@ -2,7 +2,7 @@
 % Please edit documentation in R/download_data.R
 \name{read_njtr1}
 \alias{read_njtr1}
-\title{Read an NJTR-1 data file that was previously downloaded}
+\title{Read an NJTR-1 data file that was previously downloaded. This function will read a .zip or .txt file in the format published by the NJDOT and return a data frame with cleaned data.}
 \usage{
 read_njtr1(file, geo = FALSE)
 }
@@ -15,7 +15,7 @@ read_njtr1(file, geo = FALSE)
 tibble of cleaned & parsed NJTR-1 data
 }
 \description{
-Read an NJTR-1 data file that was previously downloaded
+Read an NJTR-1 data file that was previously downloaded. This function will read a .zip or .txt file in the format published by the NJDOT and return a data frame with cleaned data.
 }
 \examples{
 read_njtr1(system.file("extdata/testdata/Ocean2019Accidents.zip", package = "njtr1"))

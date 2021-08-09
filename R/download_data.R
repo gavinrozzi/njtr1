@@ -1,5 +1,5 @@
 utils::globalVariables("where")
-#' Read an NJTR-1 data file that was previously downloaded
+#' Read an NJTR-1 data file that was previously downloaded. This function will read a .zip or .txt file in the format published by the NJDOT and return a data frame with cleaned data.
 #'
 #'
 #' @param file path to a file downloaded from NJDOT
@@ -101,7 +101,7 @@ read_njtr1 <- function(file, geo = FALSE) {
   return(data_clean)
 }
 
-#' Download New Jersey car accident records for a given year
+#' Download New Jersey car accident records for a given year. Returns a data frame of car crash based upon the table type and year specified.
 #'
 #'
 #' @param year Year to download crash data for

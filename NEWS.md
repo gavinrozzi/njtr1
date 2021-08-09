@@ -30,3 +30,5 @@ Excess white space is now removed by default for character columns.
 
 # njtr1 0.4.0.9000 (in progress)
 Fixed an issue with lazydata on Windows
+
+Updates to documentation
