@@ -11,6 +11,7 @@ utils::globalVariables("where")
 #' @importFrom dplyr across
 #' @importFrom dplyr `%>%`
 #' @importFrom stringr str_trim
+#' @importFrom stringi stri_enc_toutf8
 #' @importFrom tidyselect vars_select_helpers
 #' @examples
 #' read_njtr1(system.file("extdata/testdata/Ocean2019Accidents.zip", package = "njtr1"))
@@ -42,13 +43,13 @@ read_njtr1 <- function(file, geo = FALSE) {
   year <- as.integer(year)
 
   # Set column names based on year selected to match NJDOT schema
-  if (year >= 2017 & year <= 2019) {
+  if (year >= 2017 & year <= 2020) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
   } else if (year <= 2016 & year >= 2001) {
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2001/", type, ".csv"), header = FALSE)
-  } else if (year > 2019) {
-    stop("Invalid year: No data for years past 2019 is currently available")
+  } else if (year > 2020) {
+    stop("Invalid year: No data for years past 2020 is currently available")
   }
 
 
@@ -94,9 +95,11 @@ read_njtr1 <- function(file, geo = FALSE) {
   keep.cols <- names(data) %in% c(NA)
   data_clean <- data[!keep.cols]
 
-  # Remove excess whitespace in every character column
+  # Convert all characters to UTF-8, Remove excess whitespace in every character column
   data_clean <- data_clean %>%
-    dplyr::mutate(dplyr::across(where(is.character), stringr::str_trim))
+    dplyr::mutate(dplyr::across(where(is.character), stringi::stri_enc_toutf8)) %>%
+    dplyr::mutate(dplyr::across(where(is.character), trimws))
+    
 
   return(data_clean)
 }
@@ -171,15 +174,15 @@ get_njtr1 <- function(year, type, county = "all", geo = FALSE) {
 
 
   # Set column names based on year selected to match NJDOT schema
-  if (year >= 2017 & year <= 2019) {
+  if (year >= 2017 & year <= 2020) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
     file_name <- paste0(base_url, as.character(year), "/", prefix, year, type, ".zip")
   } else if (year <= 2016 & year >= 2001) {
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2001/", type, ".csv"), header = FALSE)
     file_name <- paste0(base_url, as.character(year), "/", prefix, year, type, ".zip")
-  } else if (year > 2019) {
-    stop("Invalid year: No data for years past 2019 is currently available")
+  } else if (year > 2020) {
+    stop("Invalid year: No data for years past 2020 is currently available")
   }
 
   # create a temporary directory and file for downloading the data

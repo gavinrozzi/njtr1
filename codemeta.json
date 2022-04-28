@@ -1,27 +1,20 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "njtr1",
-  "description": "Download and analyze motor vehicle crash data released by the New Jersey Department of Transportation (NJDOT).\n  The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that occurred in New Jersey.\n  3 different data tables containing data on crashes, vehicles & pedestrians released from 2001 to the present can be downloaded & cleaned using this package.",
+  "description": "Download and analyze motor vehicle crash data released by the New Jersey Department of Transportation (NJDOT). The data in this package is collected through the filing of NJTR-1 form by police officers, which provide a standardized way of documenting a motor vehicle crash that occurred in New Jersey. 3 different data tables containing data on crashes, vehicles & pedestrians released from 2001 to the present can be downloaded & cleaned using this package.",
   "name": "njtr1: Download, Analyze & Clean New Jersey Car Crash Data",
+  "relatedLink": ["https://gavinrozzi.github.io/njtr1/", "https://www.gavinrozzi.com/project/njtr1/"],
   "codeRepository": "https://github.com/gavinrozzi/njtr1/",
-  "relatedLink": [
-    "https://gavinrozzi.github.io/njtr1/",
-    "https://www.gavinrozzi.com/project/njtr1/",
-    "https://CRAN.R-project.org/package=njtr1"
-  ],
   "issueTracker": "https://github.com/gavinrozzi/njtr1/issues/",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.3.1",
+  "version": "0.4.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.1.0 (2021-05-18)",
+  "runtimePlatform": "R version 4.1.2 (2021-11-01)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -37,9 +30,6 @@
       "@id": "https://orcid.org/0000-0002-9969-8175"
     }
   ],
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -87,8 +77,8 @@
       "sameAs": "https://CRAN.R-project.org/package=markdown"
     }
   ],
-  "softwareRequirements": [
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "lubridate",
       "name": "lubridate",
@@ -100,7 +90,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=lubridate"
     },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "httr",
       "name": "httr",
@@ -112,7 +102,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=httr"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "curl",
       "name": "curl",
@@ -124,7 +114,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=curl"
     },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "readr",
       "name": "readr",
@@ -136,7 +126,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=readr"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -149,7 +139,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "stringr",
       "name": "stringr",
@@ -161,7 +151,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=stringr"
     },
-    {
+    "7": {
+      "@type": "SoftwareApplication",
+      "identifier": "stringi",
+      "name": "stringi",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=stringi"
+    },
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "tidyselect",
       "name": "tidyselect",
@@ -173,15 +175,42 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tidyselect"
     },
-    {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
       "version": ">= 3.5.0"
+    },
+    "SystemRequirements": null
+  },
+  "keywords": ["njtr1", "new-jersey", "road-safety", "car-crashes", "car-accidents", "data"],
+  "fileSize": "845.404KB",
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "datePublished": "2021",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": ["Gavin", "C."],
+          "familyName": "Rozzi"
+        }
+      ],
+      "name": "njtr1: An R package for researching road safety in New Jersey using open crash data",
+      "identifier": "10.1016/j.simpa.2021.100176",
+      "url": "https://www.sciencedirect.com/science/article/pii/S2665963821000762",
+      "pagination": "100176",
+      "@id": "https://doi.org/10.1016/j.simpa.2021.100176",
+      "sameAs": "https://doi.org/10.1016/j.simpa.2021.100176",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "datePublished": "2021",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "10",
+          "name": "Software Impacts"
+        }
+      }
     }
-  ],
-  "releaseNotes": "https://github.com/gavinrozzi/njtr1/blob/master/NEWS.md",
-  "readme": "https://github.com/gavinrozzi/njtr1/blob/main/README.md",
-  "fileSize": "931.063KB",
-  "contIntegration": "https://github.com/gavinrozzi/njtr1/actions"
+  ]
 }
