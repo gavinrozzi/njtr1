@@ -28,7 +28,9 @@ Added example data for testing package functionality without internet connectivi
 Excess white space is now removed by default for character columns.
 `get_njtr1()` has been refactored to utilize `read_njtr1()` on downloaded files to avoid repetitions in code & better maintainability.
 
-# njtr1 0.4.0.9000 (in progress)
+# njtr1 0.3.2
+Added support for 2020 crash tables released by NJDOT in 2022
+
 Fixed an issue with lazydata on Windows
 
-Updates to documentation
+Updates to package documentation
