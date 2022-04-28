@@ -27,7 +27,7 @@ This package allows for the download of multiple tables of crash records and cle
 
 More details about the NJTR-1 crash reporting process is available through the [New Jersey Department of Transportation.](https://www.state.nj.us/transportation/refdata/accident/pdf/NJTR-1CrashReportManual12517.pdf)
 
-This package currently supports the download of all crash table data maintained by NJDOT from 2001-2019.
+This package currently supports the download of all crash table data maintained by NJDOT from 2001-2020.
 
 ## Installation
 
@@ -50,30 +50,30 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(njtr1)
 
-# Get crash data for the year 2019
-acc_19 <- get_njtr1(year = 2019, type = "Accidents")
+# Get crash data for the year 2020
+acc_20 <- get_njtr1(year = 2020, type = "Accidents")
 
-head(acc_19)
+head(acc_20)
 
-# Get vehicle data for the year 2019
-veh_19 <- get_njtr1(year = 2019, type = "Vehicles")
+# Get vehicle data for the year 2020
+veh_20 <- get_njtr1(year = 2020, type = "Vehicles")
 
-head(veh_19)
+head(veh_20)
 
-# Get driver data for the year 2019
-driv_19 <- get_njtr1(year = 2019, type = "Drivers")
+# Get driver data for the year 2020
+driv_20 <- get_njtr1(year = 2020, type = "Drivers")
 
-head(driv_19)
+head(driv_20)
 
-# Get occupant data for the year 2019
-occ_19 <- get_njtr1(year = 2019, type = "Occupants")
+# Get occupant data for the year 2020
+occ_20 <- get_njtr1(year = 2020, type = "Occupants")
 
-head(occ_19)
+head(occ_20)
 
-# Get pedestrian data for the year 2019
-ped_19 <- get_njtr1(year = 2019, type = "Pedestrians")
+# Get pedestrian data for the year 2020
+ped_20 <- get_njtr1(year = 2020, type = "Pedestrians")
 
-head(ped_19)
+head(ped_20)
 
 
 ```
