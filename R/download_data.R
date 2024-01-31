@@ -43,13 +43,13 @@ read_njtr1 <- function(file, geo = FALSE) {
   year <- as.integer(year)
 
   # Set column names based on year selected to match NJDOT schema
-  if (year >= 2017 & year <= 2020) {
+  if (year >= 2017 & year <= 2021) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
   } else if (year <= 2016 & year >= 2001) {
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2001/", type, ".csv"), header = FALSE)
-  } else if (year > 2020) {
-    stop("Invalid year: No data for years past 2020 is currently available")
+  } else if (year > 2021) {
+    stop("Invalid year: No data for years past 2021 is currently available")
   }
 
 
@@ -174,15 +174,15 @@ get_njtr1 <- function(year, type, county = "all", geo = FALSE) {
 
 
   # Set column names based on year selected to match NJDOT schema
-  if (year >= 2017 & year <= 2020) {
+  if (year >= 2017 & year <= 2021) {
     # Set parameters for download using input to function
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2017/", type, ".csv"), header = FALSE)
     file_name <- paste0(base_url, as.character(year), "/", prefix, year, type, ".zip")
   } else if (year <= 2016 & year >= 2001) {
     fields <- utils::read.csv(paste0(system.file("extdata", package = "njtr1"), "/fields/2001/", type, ".csv"), header = FALSE)
     file_name <- paste0(base_url, as.character(year), "/", prefix, year, type, ".zip")
-  } else if (year > 2020) {
-    stop("Invalid year: No data for years past 2020 is currently available")
+  } else if (year > 2021) {
+    stop("Invalid year: No data for years past 2021 is currently available")
   }
 
   # create a temporary directory and file for downloading the data
